@@ -11,11 +11,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 // the restaurant class is key part of our code,
 // like LA1,2's library Model. have multiple methods like:
-//Management resources: menus, tables, waiters.
-//Search objects: Quick search by table number or waiter name.
-//Save/load menu data.
-//Statistics: the most popular dishes, the dishes with the highest income, the waiters with the most tips.
-//Order history traversal: such as sales data analysis, order quantity, income statistics
+
+// Management resources: menus, tables, waiters.
+// Search objects: Quick search by table number or waiter name.
+// Save/load menu data.
+// Statistics: the most popular dishes, the dishes with the highest income, the waiters with the most tips.
+// Order history traversal: such as sales data analysis, order quantity, income statistics
 
 public class Restaurant {
 	private List<MenuItem> menu;
