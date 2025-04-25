@@ -1,4 +1,4 @@
-package finalProject;
+
 
 public class OrderItem {
 	private MenuItem menuItem;
