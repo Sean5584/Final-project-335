@@ -33,7 +33,8 @@ public class RestaurantController {
             System.out.println("Table does not exist or is already closed.");
         }
     }
-    
+    // the function use to update the tips, ask tipamound the server name
+    // it will record in the tips_data.txt
     private void updateTipStats(String serverName, double tipAmount) {
         File file = new File("tips_data.txt");
         Map<String, Double> tips = new HashMap<>();
@@ -63,7 +64,7 @@ public class RestaurantController {
             System.out.println("Failed to update tip stats: " + e.getMessage());
         }
     }
-
+    // It need to use with last one, this one is read file and get the tip situation.
     public Map<String, Double> getAllTipStats() {
         Map<String, Double> tips = new HashMap<>();
         File file = new File("tips_data.txt");
