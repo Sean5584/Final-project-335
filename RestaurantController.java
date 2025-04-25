@@ -4,14 +4,17 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
+// It is the central module for parsing input, organizing data structures,
+// and scheduling traversal and output.
 public class RestaurantController {
     private Restaurant restaurant;
 
     public RestaurantController(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
-
+    // addOrder to table, here use isPresent() because in before code I
+    // used the Optional<Server> it can be change if use common it will need
+    // something like if(table !=null). And here invoid this situation.
     public void assignTableToServer(int tableNum, String serverName) {
         var table = restaurant.findTableByNumber(tableNum);
         var server = restaurant.findServerByName(serverName);
@@ -21,7 +24,7 @@ public class RestaurantController {
             System.out.println("Table or server not found.");
         }
     } 
-
+    // similar to last one, just some detail change.
     public void addOrderToTable(int tableNum, Order order) {
         var table = restaurant.findTableByNumber(tableNum);
         if (table.isPresent() && !table.get().isClosed()) {
@@ -30,7 +33,7 @@ public class RestaurantController {
             System.out.println("Table does not exist or is already closed.");
         }
     }
-
+    
     private void updateTipStats(String serverName, double tipAmount) {
         File file = new File("tips_data.txt");
         Map<String, Double> tips = new HashMap<>();
@@ -44,8 +47,6 @@ public class RestaurantController {
                         tips.put(parts[0], Double.parseDouble(parts[1]));
                     }
                 }
-
-
 
             }
 
