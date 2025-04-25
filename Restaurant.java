@@ -47,5 +47,43 @@ public class Restaurant {
 	public List<MenuItem> getMenu() {
 		return menu;
 	}
+	// save the menu in the file called menu_data
+	public void saveMenuToFile() {
+        	try (BufferedWriter writer = new BufferedWriter(new FileWriter("menu_data.txt"))) {
+            		for (MenuItem item : menu) {
+                		writer.write(item.getName() + "," + item.getCategory() + "," + item.getPrice() + "," + item.isModifiable());
+                		writer.newLine();
+            		}
+        	} catch (IOException e) {
+            		System.out.println("Failed to save menu: " + e.getMessage());
+        	}
+    	}
 
+    // function to load menu from file.
+    public static Restaurant loadMenuFromFile() {
+    	 Restaurant r = new Restaurant();
+         File file = new File(MENU_FILE);
+         if (!file.exists()) {
+             r.initDefaultMenu(); 
+             return r;
+         }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 4) {
+                    String name = parts[0];
+                    String category = parts[1];
+                    double price = Double.parseDouble(parts[2]);
+                    boolean editable = Boolean.parseBoolean(parts[3]);
+                    r.menu.add(new MenuItem(name, category, price, editable));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to load menu: " + e.getMessage());
+        }
+
+        return r;
+    }
 }
