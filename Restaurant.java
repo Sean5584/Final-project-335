@@ -47,10 +47,12 @@ public class Restaurant {
 	public List<MenuItem> getMenu() {
 		return menu;
 	}
+	// I used Optional<Server> to avoid the Null pointer exception, findFirst() is 
+	// Java bringed function that find the first one follow requirments.
 	public Optional<Server> findServerByName(String name) {
 		return servers.stream().filter(s -> s.getName().equals(name)).findFirst();
 	}
-
+	
 	public Optional<Table> findTableByNumber(int number) {
 		return tables.stream().filter(t -> t.getTableNumber() == number).findFirst();
 	}
@@ -59,12 +61,15 @@ public class Restaurant {
 		return menu.stream().sorted(Comparator.comparing(MenuItem::getTimesOrdered).reversed())
 				.collect(Collectors.toList());
 	}
-
+	// Here use Comparator.comparing(...) this is just another applyments for comparator, is 
+	// actually same to the implments comparator in menu.
+	// if implements in menu it would be like menu.sorted(). Here is just another way to solve
+	// reversed also java bringed methond, Reverse the sort order.
 	public List<MenuItem> getTopItemsByRevenue() {
 		return menu.stream().sorted(Comparator.comparing(MenuItem::getTotalRevenue).reversed())
 				.collect(Collectors.toList());
 	}
-
+	
 	public Server getTopServerByTips() {
 		return servers.stream().max(Comparator.comparing(Server::getTotalTips)).orElse(null);
 	}
