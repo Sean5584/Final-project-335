@@ -20,7 +20,7 @@ A **Java GUI** is included to support real-time interactions.
 
 -------------------------------------------
 
-## ** KEY FEATURES**
+## KEY FEATURES
 
 - Graphical User Interface
 - MVC Separation: Model, View, Controller
