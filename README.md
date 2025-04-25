@@ -4,7 +4,7 @@ RESTAURANT MANAGEMENT SYSTEM
 
 **CSc 335 – FINAL PROJECT**  
 **SPRING 2025**  
-**TEAM MEMBERS**: Haobin Yan, 
+**TEAM MEMBERS**: Haobin Yan, Zeyi Hao
 --------------------------------------------
 ## **PROJECT OVERVIEW**
 
