@@ -186,7 +186,8 @@ public class RestaurantController {
             System.out.println("Failed to read order log: " + e.getMessage());
         }
     }
-
+    // this one is why we use LocalDateTime in Order, so this one will search
+    // sepcificy orders during a period use in yyyy-mm-dd.
     public Map<String, Integer> getSalesInPeriod(LocalDateTime start, LocalDateTime end) {
         Map<String, Integer> sales = new HashMap<>();
         LocalDate startDate = start.toLocalDate();
@@ -206,7 +207,8 @@ public class RestaurantController {
 
         return sales;
     }
-
+    // the last method which is simple, just use keyword to serach if there is such a item
+    // in the menu.
     public List<MenuItem> searchMenu(String keyword) {
         List<MenuItem> result = new ArrayList<>();
         for (MenuItem item : restaurant.getMenu()) {
