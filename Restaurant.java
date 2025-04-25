@@ -47,6 +47,30 @@ public class Restaurant {
 	public List<MenuItem> getMenu() {
 		return menu;
 	}
+	public Optional<Server> findServerByName(String name) {
+		return servers.stream().filter(s -> s.getName().equals(name)).findFirst();
+	}
+
+	public Optional<Table> findTableByNumber(int number) {
+		return tables.stream().filter(t -> t.getTableNumber() == number).findFirst();
+	}
+
+	public List<MenuItem> getTopItemsBySalesCount() {
+		return menu.stream().sorted(Comparator.comparing(MenuItem::getTimesOrdered).reversed())
+				.collect(Collectors.toList());
+	}
+
+	public List<MenuItem> getTopItemsByRevenue() {
+		return menu.stream().sorted(Comparator.comparing(MenuItem::getTotalRevenue).reversed())
+				.collect(Collectors.toList());
+	}
+
+	public Server getTopServerByTips() {
+		return servers.stream().max(Comparator.comparing(Server::getTotalTips)).orElse(null);
+	}
+	public boolean removeMenuItemByName(String name) {
+	    return menu.removeIf(item -> item.getName().equalsIgnoreCase(name));
+	}
 	// save the menu in the file called menu_data
 	public void saveMenuToFile() {
         	try (BufferedWriter writer = new BufferedWriter(new FileWriter("menu_data.txt"))) {
