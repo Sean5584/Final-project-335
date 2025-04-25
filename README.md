@@ -30,7 +30,7 @@ A **Java GUI** is included to support real-time interactions.
 - Full support for order log with split bill logic
 - Searchable menu system
 
-HOW TO USE THE GUI (INTERFACE WALKTHROUGH)
+## HOW TO USE THE GUI
 
 The GUI of the Restaurant Manager system provides a complete point-of-sale interface. Here's what each section does:
 
