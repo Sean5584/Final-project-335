@@ -1,4 +1,3 @@
-package finalProject;
 
 import java.io.*;
 import java.time.LocalDate;
