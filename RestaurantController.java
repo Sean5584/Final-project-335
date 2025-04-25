@@ -85,7 +85,8 @@ public class RestaurantController {
 
         return tips;
     }
-
+    // the one use to close which is after checkout, it end everything and 
+    // increase total order count and updates things.
     public void closeTable(int tableNum, double tip, boolean splitEvenly) {
         var tableOpt = restaurant.findTableByNumber(tableNum);
         if (tableOpt.isEmpty())
@@ -110,7 +111,7 @@ public class RestaurantController {
             updateTipStats(found.getName(), tip);
         }
     }
-
+    // the one in the closeTable, this is record the informations into the file
     private void logTableToFile(Table table, String serverName, boolean splitEvenly) {
         StringBuilder sb = new StringBuilder();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -136,7 +137,7 @@ public class RestaurantController {
             System.out.println("Failed to write order log: " + e.getMessage());
         }
     }
-
+    // calculate and increase the order count into the file
     private void incrementTotalOrderCount() {
         File file = new File("order_counter.txt");
         int count = 0;
@@ -153,7 +154,7 @@ public class RestaurantController {
             System.out.println("Failed to update order count: " + e.getMessage());
         }
     }
-
+    // get the all order counts
     public int getTotalHistoricalOrderCount() {
         File file = new File("order_counter.txt");
         try {
@@ -168,7 +169,7 @@ public class RestaurantController {
         }
         return 0;
     }
-
+    // the method that read the order_log.
     public void readOrderLog() {
         File file = new File("order_log.txt");
         if (!file.exists()) {
