@@ -1,4 +1,5 @@
-
+// This is the class for OrderItem, it also simple just have the modification and 
+// menuItem
 
 public class OrderItem {
 	private MenuItem menuItem;
