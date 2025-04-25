@@ -1,7 +1,8 @@
 
 import java.time.LocalDateTime;
 import java.util.*;
-
+// This is the class that for Order, we used LocalDateTime to record the Order's time
+// And others are just simple methods.
 public class Order {
 	private List<OrderItem> items = new ArrayList<>();
     private LocalDateTime timestamp;
