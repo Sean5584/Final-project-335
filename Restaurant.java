@@ -123,4 +123,18 @@ public class Restaurant {
 
         return r;
     }
+	   private void initDefaultMenu() {
+	    	
+	        menu.add(new MenuItem("Steak", "Main", 18.99, false));
+	        menu.add(new MenuItem("Burger", "Main", 11.50, true));
+	        menu.add(new MenuItem("Pasta", "Main", 13.75, true));
+	        menu.add(new MenuItem("Salad", "Side", 5.99, true));
+	        menu.add(new MenuItem("Fries", "Side", 4.50, false));
+	        menu.add(new MenuItem("Mushroom Soup", "Side", 6.25, false));
+	        menu.add(new MenuItem("Ice Cream", "Dessert", 4.99, false));
+	        menu.add(new MenuItem("Cheesecake", "Dessert", 6.50, false));
+	        menu.add(new MenuItem("Coke", "Drink", 2.99, true));
+	        menu.add(new MenuItem("Juice", "Drink", 3.50, false));
+	        menu.add(new MenuItem("Coffee", "Drink", 3.25, true));
+	    }
 }
